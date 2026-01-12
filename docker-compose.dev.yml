@@ -1,0 +1,41 @@
+# Manus AI Agent Docker Compose - 开发环境
+# 使用: docker-compose -f docker-compose.dev.yml up
+
+version: '3.8'
+
+services:
+  # ============================================
+  # Manus API 服务 (开发模式)
+  # ============================================
+  manus-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: manus-api-dev
+    ports:
+      - "8000:8000"
+    environment:
+      - ALLAPI_KEY=${ALLAPI_KEY}
+      - ALLAPI_BASE_URL=https://nexusapi.cn/v1
+      - LLM_DEFAULT_MODEL=doubao-seed-1-8-251228
+      - LLM_THINKING_MODEL=doubao-seed-1-8-251228-thinking
+      - LOG_LEVEL=DEBUG
+      - DEBUG=true
+    volumes:
+      # 挂载源代码实现热重载
+      - ./src:/app/src:ro
+      - ./config.yaml:/app/config.yaml:ro
+      - manus-data-dev:/app/data
+      - manus-logs-dev:/app/logs
+    restart: unless-stopped
+    networks:
+      - manus-network-dev
+
+volumes:
+  manus-data-dev:
+  manus-logs-dev:
+
+networks:
+  manus-network-dev:
+    driver: bridge
+

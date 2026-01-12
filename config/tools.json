@@ -1,0 +1,135 @@
+{
+  "version": "1.0",
+  "tools": {
+    "calculator": {
+      "enabled": true,
+      "category": "basic",
+      "description": "数学计算"
+    },
+    "text_processor": {
+      "enabled": true,
+      "category": "basic",
+      "description": "文本处理"
+    },
+    "web_search": {
+      "enabled": true,
+      "category": "network",
+      "description": "网络搜索"
+    },
+    "web_scraper": {
+      "enabled": true,
+      "category": "network",
+      "description": "网页抓取"
+    },
+    "content_extractor": {
+      "enabled": true,
+      "category": "network",
+      "description": "内容提取"
+    },
+    "http_client": {
+      "enabled": true,
+      "category": "network",
+      "description": "HTTP 请求"
+    },
+    "code_executor": {
+      "enabled": true,
+      "category": "code",
+      "description": "代码执行"
+    },
+    "data_analysis": {
+      "enabled": true,
+      "category": "code",
+      "description": "数据分析"
+    },
+    "file_reader": {
+      "enabled": true,
+      "category": "file",
+      "description": "读取文件"
+    },
+    "file_writer": {
+      "enabled": true,
+      "category": "file",
+      "description": "写入文件"
+    },
+    "file_manager": {
+      "enabled": true,
+      "category": "file",
+      "description": "文件管理"
+    },
+    "json_tool": {
+      "enabled": true,
+      "category": "file",
+      "description": "JSON 处理"
+    },
+    "csv_tool": {
+      "enabled": true,
+      "category": "file",
+      "description": "CSV 处理"
+    },
+    "sqlite": {
+      "enabled": true,
+      "category": "database",
+      "description": "SQLite 数据库"
+    },
+    "data_store": {
+      "enabled": true,
+      "category": "database",
+      "description": "数据存储"
+    },
+    "shell": {
+      "enabled": false,
+      "category": "system",
+      "description": "Shell 命令（危险）"
+    },
+    "environment": {
+      "enabled": true,
+      "category": "system",
+      "description": "环境变量"
+    },
+    "tool_chain": {
+      "enabled": true,
+      "category": "orchestration",
+      "description": "工具链编排"
+    },
+    "browser": {
+      "enabled": true,
+      "category": "automation",
+      "description": "浏览器自动化"
+    },
+    "plan": {
+      "enabled": true,
+      "category": "agent",
+      "description": "任务规划"
+    },
+    "message": {
+      "enabled": true,
+      "category": "agent",
+      "description": "消息交互"
+    },
+    "schedule": {
+      "enabled": true,
+      "category": "agent",
+      "description": "定时任务"
+    },
+    "expose": {
+      "enabled": false,
+      "category": "agent",
+      "description": "端口暴露（危险）"
+    },
+    "generate": {
+      "enabled": true,
+      "category": "agent",
+      "description": "内容生成"
+    },
+    "ppt": {
+      "enabled": true,
+      "category": "productivity",
+      "description": "PPT 生成"
+    },
+    "context_engineering": {
+      "enabled": true,
+      "category": "agent",
+      "description": "上下文工程"
+    }
+  }
+}

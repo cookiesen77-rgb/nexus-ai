@@ -1,0 +1,1115 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Manus-style Light Theme - 米色/奶油色系 */
+    --background: #F8F6F0;
+    --foreground: #1A1A1A;
+    --card: #FFFFFF;
+    --card-foreground: #1A1A1A;
+    --popover: #FFFFFF;
+    --popover-foreground: #1A1A1A;
+    --primary: #E8A849;
+    --primary-hover: #D69A3D;
+    --primary-foreground: #FFFFFF;
+    --secondary: #F0EDE6;
+    --secondary-foreground: #333333;
+    --muted: #F5F3ED;
+    --muted-foreground: #8C8C8C;
+    --accent: #F5F3ED;
+    --accent-foreground: #333333;
+    --destructive: #EF4444;
+    --destructive-foreground: #FFFFFF;
+    --border: #E8E5DD;
+    --input: #FFFFFF;
+    --input-border: #E0DDD5;
+    --ring: #E8A849;
+    --radius: 1rem;
+    --radius-lg: 1.25rem;
+    --radius-xl: 1.5rem;
+
+    /* Nexus Custom Colors */
+    --nexus-sidebar-bg: #FFFFFF;
+    --nexus-sidebar-border: #EFEDE7;
+    --nexus-chat-bg: #F8F6F0;
+    --nexus-chat-bubble-user: #E8A849;
+    --nexus-chat-bubble-agent: #FFFFFF;
+    --nexus-chat-bubble-border: #E8E5DD;
+    --nexus-text-primary: #1A1A1A;
+    --nexus-text-secondary: #8C8C8C;
+    --nexus-text-link: #E8A849;
+    --nexus-success: #52C41A;
+    --nexus-error: #EF4444;
+    --nexus-warning: #FAAD14;
+    --nexus-info: #1890FF;
+    --nexus-gold: #E8A849;
+    --nexus-gold-light: #FFF7E6;
+  }
+
+  .dark {
+    /* Nexus-inspired Dark Theme */
+    --background: #0F1116;
+    --foreground: #F6F7FB;
+    --card: #171A23;
+    --card-foreground: #F6F7FB;
+    --popover: #171A23;
+    --popover-foreground: #F6F7FB;
+    --primary: #8BA4D0;
+    --primary-hover: #A3B6DA;
+    --primary-foreground: #0F1116;
+    --secondary: #1B1F2A;
+    --secondary-foreground: #D6DAE6;
+    --muted: #161922;
+    --muted-foreground: #AEB7CC;
+    --accent: #1E2330;
+    --accent-foreground: #EDEFF5;
+    --destructive: #F87171;
+    --destructive-foreground: #1B1F2A;
+    --border: #262B3A;
+    --input: #1C202C;
+    --input-border: #2F3546;
+    --ring: #8BA4D0;
+
+    /* Nexus Dark Colors */
+    --nexus-sidebar-bg: #131721;
+    --nexus-sidebar-border: #1E2331;
+    --nexus-chat-bg: #0F1116;
+    --nexus-chat-bubble-user: #8BA4D0;
+    --nexus-chat-bubble-agent: #171A23;
+    --nexus-chat-bubble-border: #262C3C;
+    --nexus-text-primary: #F6F7FB;
+    --nexus-text-secondary: #AEB7CC;
+    --nexus-text-link: #8BA4D0;
+    --nexus-success: #7DD3FC;
+    --nexus-error: #F87171;
+    --nexus-warning: #FBBF24;
+    --nexus-info: #60A5FA;
+    --nexus-gold: #E8C27A;
+    --nexus-gold-light: #2C2013;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--muted-foreground);
+  }
+}
+
+@layer components {
+  /* Manus-style input */
+  .nexus-input {
+    @apply w-full rounded-xl border border-input-border bg-input px-4 py-3;
+    @apply text-foreground placeholder:text-muted-foreground;
+    @apply focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent;
+    @apply transition-all duration-200;
+  }
+
+  .nexus-input:hover {
+    border-color: rgba(140, 140, 140, 0.5);
+  }
+
+  /* Manus-style card */
+  .nexus-card {
+    @apply bg-card rounded-xl border border-border;
+    @apply shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+
+  /* Manus-style button */
+  .nexus-btn {
+    @apply inline-flex items-center justify-center gap-2;
+    @apply rounded-xl px-4 py-2.5 text-sm font-medium;
+    @apply transition-all duration-200;
+  }
+
+  .nexus-btn-primary {
+    @apply nexus-btn bg-primary text-primary-foreground;
+    @apply hover:bg-[var(--primary-hover)] active:scale-95;
+  }
+
+  .nexus-btn-secondary {
+    @apply nexus-btn bg-secondary text-secondary-foreground;
+    @apply hover:bg-muted active:scale-95;
+  }
+
+  .nexus-btn-ghost {
+    @apply nexus-btn bg-transparent text-foreground;
+    @apply hover:bg-muted active:scale-95;
+  }
+
+  .nexus-btn-outline {
+    @apply nexus-btn bg-transparent border border-border text-foreground;
+    @apply hover:bg-muted active:scale-95;
+  }
+
+  /* Sidebar item */
+  .nexus-sidebar-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg;
+    @apply text-sm font-medium text-muted-foreground;
+    @apply hover:bg-muted hover:text-foreground;
+    @apply transition-colors duration-150 cursor-pointer;
+  }
+
+  .nexus-sidebar-item.active {
+    @apply bg-muted text-foreground;
+  }
+
+  /* Quick action button - 黄色边框药丸形状 */
+  .nexus-quick-action {
+    @apply inline-flex items-center gap-2.5 px-5 py-3;
+    @apply rounded-full border-2 border-[var(--nexus-gold)] bg-transparent;
+    @apply text-sm font-medium text-foreground;
+    @apply hover:bg-[var(--nexus-gold-light)] hover:shadow-md;
+    @apply transition-all duration-200 cursor-pointer;
+  }
+
+  .nexus-quick-action .icon {
+    @apply w-8 h-8 rounded-lg flex items-center justify-center;
+    @apply bg-[var(--nexus-gold-light)];
+  }
+
+  .nexus-quick-action .icon svg {
+    @apply w-4 h-4 text-[var(--nexus-gold)];
+  }
+
+  /* 发送按钮 - 橙色圆形 */
+  .nexus-send-btn {
+    @apply w-10 h-10 rounded-full flex items-center justify-center;
+    @apply bg-[var(--nexus-gold)] text-white;
+    @apply hover:bg-[var(--primary-hover)] active:scale-95;
+    @apply transition-all duration-200 cursor-pointer;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* 附件按钮 */
+  .nexus-icon-btn {
+    @apply p-2 rounded-full flex items-center justify-center;
+    @apply text-muted-foreground hover:text-foreground hover:bg-muted;
+    @apply transition-all duration-200 cursor-pointer;
+  }
+
+/* Nexus 输入框样式（统一浅色系） */
+.nexus-input-box {
+  background: #f7f4ef;
+  border: 1px solid #e3ddcf;
+  border-radius: 18px;
+  padding: 10px 14px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+}
+.nexus-input-box:focus-within {
+  border-color: #c7b79a;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+.nexus-input-icon {
+  height: 36px;
+  width: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  color: #8f8a80;
+  transition: all 0.2s ease;
+}
+.nexus-input-icon:hover {
+  background: rgba(0, 0, 0, 0.04);
+  color: #6a655d;
+}
+.nexus-input-icon.send {
+  color: #ffffff;
+  background: linear-gradient(135deg, #8ba4d0, #748cb8);
+}
+.nexus-input-icon.send:disabled {
+  background: #d7d5d0;
+  color: #ffffff;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Uiverse messageBox - Nexus 调色版 */
+.nexus-messageBox {
+  width: 100%;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #f7f4ef;
+  padding: 10px 16px;
+  border-radius: 18px;
+  border: 1px solid #e3ddcf;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+  transition: border 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+}
+.nexus-messageBox:focus-within {
+  border: 1px solid #c7b79a;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+.fileUploadWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.fileUploadWrapper input {
+  display: none;
+}
+.fileUploadWrapper label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.fileUploadWrapper label svg {
+  height: 22px;
+}
+.fileUploadWrapper label svg path,
+.fileUploadWrapper label svg circle {
+  transition: all 0.2s ease;
+}
+.fileUploadWrapper label:hover svg path {
+  stroke: #4a463e;
+}
+.fileUploadWrapper label:hover svg circle {
+  stroke: #4a463e;
+  fill: #f0ede6;
+}
+.fileUploadWrapper label:hover .tooltip {
+  display: block;
+  opacity: 1;
+}
+.tooltip {
+  position: absolute;
+  top: -40px;
+  display: none;
+  opacity: 0;
+  color: white;
+  font-size: 10px;
+  text-wrap: nowrap;
+  background-color: #000;
+  padding: 6px 10px;
+  border: 1px solid #3c3c3c;
+  border-radius: 5px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.6);
+  transition: all 0.2s;
+}
+#messageInput {
+  flex: 1;
+  min-width: 120px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding-left: 10px;
+  color: #3b3b3b;
+  font-size: 16px;
+}
+#messageInput::placeholder {
+  color: #9a958c;
+}
+#sendButton {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+#sendButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+#sendButton svg {
+  height: 20px;
+  transition: all 0.2s;
+}
+#sendButton svg path {
+  transition: all 0.2s;
+}
+#sendButton:hover svg path {
+  stroke: #4a463e;
+}
+
+/* Uiverse CTA 按钮 - Nexus 色系 */
+.nexus-cta.button {
+  height: 54px;
+  width: 240px;
+  position: relative;
+  background-color: transparent;
+  cursor: pointer;
+  border: 2px solid #d4c19f;
+  overflow: hidden;
+  border-radius: 32px;
+  color: #5c4f3f;
+  transition: all 0.5s ease-in-out;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.nexus-cta .btn-txt {
+  z-index: 1;
+  font-weight: 800;
+  letter-spacing: 4px;
+}
+
+.nexus-cta.type1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all 0.5s ease-in-out;
+  background: linear-gradient(135deg, #f4d7b5, #e6c39b);
+  border-radius: 30px;
+  visibility: hidden;
+  height: 12px;
+  width: 12px;
+  z-index: -1;
+}
+
+.nexus-cta.button:hover {
+  box-shadow: 1px 1px 200px rgba(212, 193, 159, 0.4);
+  color: #fff;
+  border-color: transparent;
+}
+
+.nexus-cta.type1:hover::after {
+  visibility: visible;
+  transform: scale(100) translateX(2px);
+}
+
+/* Nexus 顶部铃铛按钮 */
+.nexus-bell-toggle {
+  --color: #a5a5b0;
+  --size: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  font-size: var(--size);
+  user-select: none;
+  fill: var(--color);
+}
+.nexus-bell-toggle .bell-regular {
+  position: absolute;
+  animation: keyframes-fill .5s;
+}
+.nexus-bell-toggle .bell-solid {
+  position: absolute;
+  display: none;
+  animation: keyframes-fill .5s;
+}
+.nexus-bell-toggle input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.nexus-bell-toggle input:checked ~ .bell-regular {
+  display: none;
+}
+.nexus-bell-toggle input:checked ~ .bell-solid {
+  display: block;
+}
+
+@keyframes keyframes-fill {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    transform: rotate(25deg);
+  }
+  50% {
+    transform: rotate(-20deg) scale(1.2);
+  }
+  75% {
+    transform: rotate(15deg);
+  }
+}
+
+/* Uiverse quick action buttons */
+.cssbuttons-io {
+  position: relative;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+  border-radius: 999px;
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(to right, #F5C8A3, #E4B27A);
+  color: ghostwhite;
+  overflow: hidden;
+  min-width: 160px;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.cssbuttons-io span {
+  position: relative;
+  z-index: 10;
+  transition: color 0.4s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8em 1.4em;
+}
+
+.cssbuttons-io svg {
+  width: 1.2em;
+  height: 1.2em;
+}
+
+.cssbuttons-io::before,
+.cssbuttons-io::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.cssbuttons-io::before {
+  content: "";
+  background: rgba(0, 0, 0, 0.25);
+  width: 120%;
+  left: -10%;
+  transform: skew(30deg);
+  transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+}
+
+.cssbuttons-io:hover::before {
+  transform: translate3d(100%, 0, 0);
+}
+
+.cssbuttons-io:active {
+  transform: scale(0.97);
+}
+
+/* Theme switch */
+.nexus-theme-switch {
+  font-size: 13px;
+  position: relative;
+  display: inline-block;
+  width: 2.8em;
+  height: 1.4em;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.nexus-theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.nexus-theme-switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ede3d6;
+  transition: 0.4s;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.nexus-theme-switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 0.8em;
+  width: 0.8em;
+  border-radius: 20px;
+  left: 0.35em;
+  bottom: 0.35em;
+  transition: 0.4s;
+  transition-timing-function: cubic-bezier(0.81, -0.04, 0.38, 1.5);
+  box-shadow: inset 7px -3px 0px 0px #fff;
+}
+
+.nexus-theme-switch input:checked + .slider {
+  background-color: #8ba4d0;
+}
+
+.nexus-theme-switch input:checked + .slider:before {
+  transform: translateX(1.2em);
+  box-shadow: inset 10px -3px 0px 10px #ffcf48;
+}
+
+.nexus-theme-switch .star {
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  transition: all 0.4s;
+}
+
+.nexus-theme-switch .star_1 {
+  left: 1.7em;
+  top: 0.3em;
+}
+
+.nexus-theme-switch .star_2 {
+  left: 1.5em;
+  top: 0.8em;
+}
+
+.nexus-theme-switch .star_3 {
+  left: 2.1em;
+  top: 0.6em;
+}
+
+.nexus-theme-switch input:checked + .slider .star {
+  opacity: 0;
+}
+
+.nexus-theme-switch .cloud {
+  width: 2.4em;
+  position: absolute;
+  bottom: -0.9em;
+  left: -0.7em;
+  opacity: 0;
+  transition: all 0.4s;
+}
+
+.nexus-theme-switch input:checked + .slider .cloud {
+  opacity: 1;
+}
+
+  /* Feature card */
+  .nexus-feature-card {
+    @apply flex items-center gap-4 p-5 rounded-2xl;
+    @apply bg-card border border-border;
+    @apply hover:shadow-md transition-all duration-200 cursor-pointer;
+  }
+
+  /* 通知横幅 */
+  .nexus-announcement {
+    @apply inline-flex items-center gap-3 px-5 py-3 rounded-2xl;
+    @apply bg-card border border-border;
+    @apply text-sm text-muted-foreground;
+  }
+
+  .nexus-announcement-icon {
+    @apply w-8 h-8 rounded-full flex items-center justify-center;
+    @apply bg-[var(--nexus-gold-light)];
+  }
+
+  /* Badge */
+  .nexus-badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1;
+    @apply rounded-full text-xs font-medium;
+    @apply bg-nexus-gold-light text-[var(--nexus-gold)];
+  }
+
+  /* Invite card */
+  .nexus-invite-card {
+    @apply flex items-center justify-between p-3 rounded-xl;
+    @apply bg-gradient-to-r from-amber-50 to-orange-50;
+    @apply dark:from-amber-900/20 dark:to-orange-900/20;
+    @apply border border-amber-200 dark:border-amber-800/50;
+    @apply cursor-pointer hover:shadow-md transition-all duration-200;
+  }
+}
+
+/* Animation */
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+/* Placeholder styles */
+::placeholder {
+  color: var(--muted-foreground);
+  opacity: 0.8;
+}
+
+/* Nexus Quick Action Buttons - Uiverse inspired (50% scale) */
+.nexus-quick-action {
+  position: relative;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #E8A849 0%, #D4922E 100%);
+  color: white;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(232, 168, 73, 0.2);
+  min-width: 112px;
+}
+
+.nexus-quick-action svg {
+  width: 0.85em;
+  height: 0.85em;
+  margin-right: 0.3em;
+}
+
+.nexus-quick-action span {
+  position: relative;
+  z-index: 10;
+  transition: color 0.4s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.4em 0.7em 0.4em 0.6em;
+}
+
+.nexus-quick-action::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.92);
+  z-index: 1;
+  transform: translate3d(0, -100%, 0);
+  transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+}
+
+.nexus-quick-action:hover::before {
+  transform: translate3d(0, 0, 0);
+}
+
+.nexus-quick-action:hover {
+  box-shadow: 0 4px 12px rgba(232, 168, 73, 0.25);
+  color: #D4922E;
+}
+
+/* Dark mode variant */
+.dark .nexus-quick-action {
+  background: linear-gradient(135deg, #8BA4D0 0%, #6B8BC5 100%);
+  box-shadow: 0 4px 12px rgba(139, 164, 208, 0.2);
+}
+
+.dark .nexus-quick-action::before {
+  background: linear-gradient(135deg, #0F1116 0%, #171A23 100%);
+}
+
+.dark .nexus-quick-action:hover {
+  box-shadow: 0 4px 12px rgba(139, 164, 208, 0.15);
+  color: #8BA4D0;
+}
+
+/* Nexus CTA Button - Uiverse style with expand effect */
+.nexus-cta-btn {
+  height: 44px;
+  padding: 0 28px;
+  position: relative;
+  background-color: transparent;
+  cursor: pointer;
+  border: 2px solid #E8A849;
+  overflow: hidden;
+  border-radius: 999px;
+  color: #E8A849;
+  transition: all 0.5s ease-in-out;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nexus-cta-btn .btn-txt {
+  position: relative;
+  z-index: 1;
+}
+
+.nexus-cta-btn::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease-in-out;
+  background-color: #E8A849;
+  border-radius: 999px;
+  visibility: hidden;
+  height: 10px;
+  width: 10px;
+  z-index: 0;
+}
+
+.nexus-cta-btn:hover {
+  box-shadow: 0 0 30px rgba(232, 168, 73, 0.4);
+  color: #fff;
+  border-color: transparent;
+}
+
+.nexus-cta-btn:hover::after {
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(50);
+}
+
+/* Dark mode */
+.dark .nexus-cta-btn {
+  border-color: #8BA4D0;
+  color: #8BA4D0;
+}
+
+.dark .nexus-cta-btn::after {
+  background-color: #8BA4D0;
+}
+
+.dark .nexus-cta-btn:hover {
+  box-shadow: 0 0 30px rgba(139, 164, 208, 0.3);
+  color: #0F1116;
+}
+
+/* ============================================
+   Lovart-Inspired Design System
+   ============================================ */
+
+/* Glass morphism effect */
+.lovart-glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark .lovart-glass {
+  background: rgba(15, 17, 22, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* AI Panel Styles */
+.lovart-ai-panel {
+  background: linear-gradient(180deg, var(--card) 0%, var(--background) 100%);
+  border-left: 1px solid var(--border);
+}
+
+.dark .lovart-ai-panel {
+  background: linear-gradient(180deg, #131721 0%, #0F1116 100%);
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Message bubble styles */
+.lovart-message-user {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+  color: white;
+  border-radius: 20px 20px 4px 20px;
+  box-shadow: 0 4px 12px rgba(var(--primary-rgb, 232, 168, 73), 0.25);
+}
+
+.lovart-message-ai {
+  background: var(--muted);
+  color: var(--foreground);
+  border-radius: 20px 20px 20px 4px;
+  border: 1px solid var(--border);
+}
+
+/* Typing indicator */
+.lovart-typing {
+  display: flex;
+  gap: 4px;
+  padding: 12px 16px;
+  background: var(--muted);
+  border-radius: 20px 20px 20px 4px;
+  width: fit-content;
+}
+
+.lovart-typing-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--muted-foreground);
+  animation: lovart-bounce 1.4s infinite ease-in-out;
+}
+
+.lovart-typing-dot:nth-child(1) { animation-delay: 0s; }
+.lovart-typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.lovart-typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes lovart-bounce {
+  0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+  40% { transform: scale(1.2); opacity: 1; }
+}
+
+/* Suggestion card */
+.lovart-suggestion {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lovart-suggestion:hover {
+  border-color: var(--primary);
+  box-shadow: 0 8px 24px rgba(var(--primary-rgb, 232, 168, 73), 0.12);
+  transform: translateY(-2px);
+}
+
+/* Input area */
+.lovart-input-container {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 8px 8px 8px 16px;
+  transition: all 0.3s ease;
+}
+
+.lovart-input-container:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(var(--primary-rgb, 232, 168, 73), 0.15);
+}
+
+/* Send button */
+.lovart-send-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 4px 12px rgba(var(--primary-rgb, 232, 168, 73), 0.3);
+}
+
+.lovart-send-btn:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(var(--primary-rgb, 232, 168, 73), 0.4);
+}
+
+.lovart-send-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Image preview in chat */
+.lovart-image-preview {
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 240px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Canvas toolbar */
+.lovart-toolbar {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.lovart-toolbar-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: transparent;
+  border: none;
+}
+
+.lovart-toolbar-btn:hover {
+  background: var(--muted);
+  color: var(--foreground);
+}
+
+.lovart-toolbar-btn.active {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 2px 8px rgba(var(--primary-rgb, 232, 168, 73), 0.3);
+}
+
+/* Image generator placeholder on canvas */
+.lovart-gen-placeholder {
+  background: linear-gradient(135deg, var(--muted) 0%, var(--card) 100%);
+  border: 2px dashed var(--primary);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+
+.lovart-gen-placeholder:hover {
+  border-color: var(--primary-hover);
+  box-shadow: 0 0 24px rgba(var(--primary-rgb, 232, 168, 73), 0.15);
+}
+
+.lovart-gen-placeholder .icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  animation: lovart-pulse 2s ease-in-out infinite;
+}
+
+@keyframes lovart-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+}
+
+/* Context menu / toolbar above element */
+.lovart-context-bar {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 6px;
+  display: flex;
+  gap: 4px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.lovart-context-btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lovart-context-btn:hover {
+  background: var(--muted);
+  color: var(--foreground);
+}
+
+.lovart-context-btn.primary {
+  background: var(--primary);
+  color: white;
+}
+
+.lovart-context-btn.primary:hover {
+  background: var(--primary-hover);
+}
+
+/* Generation progress */
+.lovart-progress {
+  height: 4px;
+  background: var(--muted);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.lovart-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--primary-hover) 100%);
+  border-radius: 2px;
+  animation: lovart-progress 2s ease-in-out infinite;
+}
+
+@keyframes lovart-progress {
+  0% { width: 0%; margin-left: 0%; }
+  50% { width: 60%; margin-left: 20%; }
+  100% { width: 0%; margin-left: 100%; }
+}
+
+/* Fade in animation */
+.lovart-fade-in {
+  animation: lovart-fadeIn 0.3s ease-out;
+}
+
+@keyframes lovart-fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Slide in from right */
+.lovart-slide-in {
+  animation: lovart-slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes lovart-slideIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Badge small */
+.nexus-badge-sm {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 500;
+  border-radius: 999px;
+  background: var(--muted);
+  color: var(--muted-foreground);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.nexus-badge-sm:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}

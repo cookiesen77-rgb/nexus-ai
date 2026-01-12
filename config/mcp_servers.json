@@ -1,0 +1,133 @@
+{
+  "servers": [
+    {
+      "name": "github",
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}"
+      },
+      "enabled": true
+    },
+    {
+      "name": "memory_remote",
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ],
+      "env": {},
+      "enabled": true
+    },
+    {
+      "name": "time",
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@theo.foobar/mcp-time"
+      ],
+      "env": {},
+      "enabled": true
+    },
+    {
+      "name": "fetch_remote",
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@kazuph/mcp-fetch"
+      ],
+      "env": {},
+      "enabled": true
+    },
+    {
+      "name": "context7",
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ],
+      "env": {
+        "CONTEXT7_API_KEY": "${CONTEXT7_API_KEY}"
+      },
+      "enabled": true
+    },
+    {
+      "name": "sequential_thinking",
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ],
+      "env": {},
+      "enabled": true
+    },
+    {
+      "name": "brightdata",
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@brightdata/mcp"
+      ],
+      "env": {
+        "API_TOKEN": "${BRIGHTDATA_API_TOKEN}"
+      },
+      "enabled": true
+    },
+    {
+      "name": "figma",
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "figma-developer-mcp"
+      ],
+      "env": {
+        "FIGMA_API_KEY": "${FIGMA_API_KEY}"
+      },
+      "enabled": true
+    },
+    {
+      "name": "edgeone_pages",
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "edgeone-pages-mcp-fullstack",
+        "--region",
+        "china"
+      ],
+      "env": {},
+      "enabled": true
+    },
+    {
+      "name": "chrome_devtools",
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "chrome-devtools-mcp"
+      ],
+      "env": {},
+      "enabled": true
+    },
+    {
+      "name": "claude_mem_search",
+      "type": "stdio",
+      "command": "${CLAUDE_MEM_MCP_COMMAND}",
+      "args": [],
+      "env": {},
+      "cwd": "${CLAUDE_MEM_MCP_CWD}",
+      "enabled": false
+    }
+  ]
+}
+
