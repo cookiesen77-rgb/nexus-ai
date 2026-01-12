@@ -12,7 +12,7 @@ interface NexusLogoIconProps {
 const NexusLogoIcon = ({ size = 32, className = '' }: NexusLogoIconProps) => {
   return (
     <img 
-      src="/nexus-logo.png" 
+      src="/nexus-logo.svg" 
       alt="Nexus AI"
       width={size}
       height={size}

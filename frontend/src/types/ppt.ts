@@ -156,7 +156,6 @@ export const TEMPLATE_PREVIEWS: Record<TemplateStyle, {
     primaryColor: '#B45309',
     textColor: '#111827',
     description: '复古卷轴（Banana 模板）',
-    previewImage: '/ppt-templates/banana/template_y.png',
   },
   banana_template_vector_illustration: {
     gradient: 'from-fuchsia-200 to-violet-200',
@@ -164,7 +163,6 @@ export const TEMPLATE_PREVIEWS: Record<TemplateStyle, {
     primaryColor: '#7C3AED',
     textColor: '#111827',
     description: '矢量插画（Banana 模板）',
-    previewImage: '/ppt-templates/banana/template_vector_illustration.png',
   },
   banana_template_glass: {
     gradient: 'from-slate-200 to-slate-300',
@@ -172,7 +170,6 @@ export const TEMPLATE_PREVIEWS: Record<TemplateStyle, {
     primaryColor: '#0EA5E9',
     textColor: '#111827',
     description: '拟物玻璃（Banana 模板）',
-    previewImage: '/ppt-templates/banana/template_glass.png',
   },
   banana_template_b: {
     gradient: 'from-blue-200 to-indigo-200',
@@ -180,7 +177,6 @@ export const TEMPLATE_PREVIEWS: Record<TemplateStyle, {
     primaryColor: '#2563EB',
     textColor: '#111827',
     description: '科技蓝（Banana 模板）',
-    previewImage: '/ppt-templates/banana/template_b.png',
   },
   banana_template_s: {
     gradient: 'from-slate-100 to-slate-200',
@@ -188,7 +184,6 @@ export const TEMPLATE_PREVIEWS: Record<TemplateStyle, {
     primaryColor: '#334155',
     textColor: '#111827',
     description: '简约商务（Banana 模板）',
-    previewImage: '/ppt-templates/banana/template_s.png',
   },
   banana_template_academic: {
     gradient: 'from-emerald-100 to-teal-100',

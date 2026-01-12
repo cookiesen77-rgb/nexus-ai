@@ -224,7 +224,6 @@ BANANA_TEMPLATE_Y = PPTTemplate(
     # 导出风格仍沿用现代模板的配色/字体，避免破坏现有 PPTX 构建逻辑
     colors=MODERN_TEMPLATE.colors,
     fonts=MODERN_TEMPLATE.fonts,
-    preview_image="/ppt-templates/banana/template_y.png",
 )
 
 BANANA_TEMPLATE_VECTOR_ILLUSTRATION = PPTTemplate(
@@ -234,7 +233,6 @@ BANANA_TEMPLATE_VECTOR_ILLUSTRATION = PPTTemplate(
     description="参考 banana-slides 的模板图（用于风格参考）。",
     colors=CREATIVE_TEMPLATE.colors,
     fonts=CREATIVE_TEMPLATE.fonts,
-    preview_image="/ppt-templates/banana/template_vector_illustration.png",
 )
 
 BANANA_TEMPLATE_GLASS = PPTTemplate(
@@ -244,7 +242,6 @@ BANANA_TEMPLATE_GLASS = PPTTemplate(
     description="参考 banana-slides 的模板图（用于风格参考）。",
     colors=DARK_TEMPLATE.colors,
     fonts=DARK_TEMPLATE.fonts,
-    preview_image="/ppt-templates/banana/template_glass.png",
 )
 
 BANANA_TEMPLATE_B = PPTTemplate(
@@ -254,7 +251,6 @@ BANANA_TEMPLATE_B = PPTTemplate(
     description="参考 banana-slides 的模板图（用于风格参考）。",
     colors=MODERN_TEMPLATE.colors,
     fonts=MODERN_TEMPLATE.fonts,
-    preview_image="/ppt-templates/banana/template_b.png",
 )
 
 BANANA_TEMPLATE_S = PPTTemplate(
@@ -264,7 +260,6 @@ BANANA_TEMPLATE_S = PPTTemplate(
     description="参考 banana-slides 的模板图（用于风格参考）。",
     colors=MINIMAL_TEMPLATE.colors,
     fonts=MINIMAL_TEMPLATE.fonts,
-    preview_image="/ppt-templates/banana/template_s.png",
 )
 
 BANANA_TEMPLATE_ACADEMIC = PPTTemplate(
@@ -293,11 +288,6 @@ TEMPLATES = {
 
 
 _TEMPLATE_REFERENCE_IMAGE_FILES: dict[str, str] = {
-    TemplateStyle.BANANA_TEMPLATE_Y.value: "banana/template_y.png",
-    TemplateStyle.BANANA_TEMPLATE_VECTOR_ILLUSTRATION.value: "banana/template_vector_illustration.png",
-    TemplateStyle.BANANA_TEMPLATE_GLASS.value: "banana/template_glass.png",
-    TemplateStyle.BANANA_TEMPLATE_B.value: "banana/template_b.png",
-    TemplateStyle.BANANA_TEMPLATE_S.value: "banana/template_s.png",
     TemplateStyle.BANANA_TEMPLATE_ACADEMIC.value: "banana/template_academic.jpg",
 }
 
